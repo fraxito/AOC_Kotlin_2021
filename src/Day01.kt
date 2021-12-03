@@ -12,14 +12,23 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        var contador = 0; //guarda la posición que estoy leyendo
+        var numeros = IntArray(input.size); //va a guardar los datos del fichero
+        var resultado = 0;
+        for (linea in input) {
+            numeros[contador] = linea.toInt()
+            if (contador > 2){
+                if( numeros[contador - 3] < numeros[contador]){
+                resultado++;
+                }
+            }
+            contador++;
+        }
+        return resultado
     }
 
-    val testInput = readInput("datos")
+    val testInput = readInput("entradas/datos")
     println("solución al ejercicio1 parteA: " + part1(testInput))
     println("solución al ejercicio2 parteB: " + part2(testInput))
 
-    // val input = readInput("Day01")
-
-    //println(part2(input))
 }
