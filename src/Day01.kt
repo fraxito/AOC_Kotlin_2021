@@ -1,17 +1,25 @@
 fun main() {
     fun part1(input: List<String>): Int {
-        return input.size
+        var anterior = 0
+        var vecesMayor = -1 //guarda cuantas veces el numero es mayor que el anterior
+        for (linea in input) {
+            if (linea.toInt() > anterior){
+                vecesMayor++
+            }
+            anterior = linea.toInt()
+        }
+        return vecesMayor
     }
 
     fun part2(input: List<String>): Int {
         return input.size
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
+    val testInput = readInput("datos")
+    println("solución al ejercicio1 parteA: " + part1(testInput))
+    println("solución al ejercicio2 parteB: " + part2(testInput))
 
-    val input = readInput("Day01")
-    println(part1(input))
-    println(part2(input))
+    // val input = readInput("Day01")
+
+    //println(part2(input))
 }
